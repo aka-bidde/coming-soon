@@ -1,22 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/style.css">
-</head>
-<body>
-    
-    <div class="hero">
-        <h3>Coming Soon!</h3>
-        <h1>OurBrand New<br>Website Is On It's Way</h1>
-        <p>Subscribe for more details.</p>
-        <form>
-        <input type="email" name="Email" placeholder="Enter email:" required> <button type="submit"><img src="send-icon.png" width="30px"></button>
-        </form>
-        <span id="msg"></span>
-        </div>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Coming Soon</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+        <a href="#" class="logo">Mo Sharif</a>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+            </ul>
+        </nav>
+    </header>
 
-</body>
+    <section>
+        <img src="images/curve.png" class="wave">
+        <div class="contentBx">
+            <h2>Coming Soon</h2>
+            <p>Our Brand New Website Is On It's Way</p>
+            <div class="countdown">
+                <div class="time"><div id="day"></div><span>Days</span></div>
+                <div class="time"><div id="hour"></div><span>Hours</span></div>
+                <div class="time"><div id="minute"></div><span>Minutes</span></div>
+                <div class="time"><div id="second"></div><span>Seconds</span></div>
+            </div>
+        <a href="#" onclick="toggle();">Notify Me!</a>
+        </div>
+        <div class="imgBx">
+            <img src="images/man.png">
+        </div>
+        <ul class="sci">
+            <li><a href="https://www.linkedin.com/in/mohamud-sharif-3644a6207/"><img src="/images/linkedin.png"></a></li>
+            <li><a href="https://github.com/aka-bidde"><img src="images/github-sign.png"></a></li>
+            <li><a href="https://www.codewars.com/users/aka-bidde"><img src="/images/codewars-.png"></a></li>
+            <li><a href="https://www.hackerrank.com/profile/Mo_Sharif"><img src="images/HackerRank_Icon-1000px.png"></a></li>
+       
+       
+        </ul>
+    </section>
+    <div class="newsletter">
+        <h2>Stay Tuned</h2>
+        <p>Get Notified at launch</p>
+        <div class="inputBox">
+            <form>
+                <input type="email" name="" required="" placeholder="Enter Email Address">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <img src="images/close.png" class="close" onclick="toggle();">
+    </div>
+<script type="text/javascript">
+    function toggle(){
+        var newsletter=document.querySelector('.newsletter');
+        newsletter.classList.toggle('active');
+    }
+
+    var countDate = new Date(2024, 7, 2).getTime();
+
+    function cd(){
+        let now = new Date().getTime();
+        let gap = countDate - now;
+
+        let second = 1000;
+        let minute = second * 60;
+        let hour = minute * 60;
+        let day = hour * 24;
+
+        let d = Math.floor(gap / day);
+        let h = Math.floor((gap % day) / hour);
+        let m = Math.floor((gap % hour) / minute);
+        let s = Math.floor((gap % minute) / second);
+
+        document.getElementById('day').innerText = d;
+        document.getElementById('hour').innerText = h;
+        document.getElementById('minute').innerText = m;
+        document.getElementById('second').innerText = s;
+    }
+
+    setInterval(function(){
+        cd();
+    }, 1000);
+</script>
+
+    </body>
 </html>
